@@ -1,11 +1,13 @@
-const typed = new Type(".typing", {
+// ===ANIMATED TEXT==========
+const typed = new Typed(".typing", {
     strings: ["Frontend Developer", "Backend Developer", "Graphic Designer", "Web Developer"],
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
     loop: true
 });
-const write = new Type(".Animate", {
+
+const write = new Typed(".Animate", {
     strings: ["Frontend Developer", "Backend Developer", "Graphic Designer", "Web Developer"],
     typeSpeed: 100,
     backSpeed: 100,
@@ -13,31 +15,36 @@ const write = new Type(".Animate", {
     loop: true
 });
 
-var emailField = document.getlementById("email-field");
-var emailField = document.getlementById("email-error");
-var emailField = document.get("email-error");
-function validateEmial(){
+//=====TO PREVENT TEXT COPYING============
 
-}
 
-// === FORM SUBMISSION ======
+    // document.addEventListener('contextmenu', function(e) {
+    //     e.preventDefault();
+    // });
 
-document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    let formData = new FormData(this);
+    // ======SCRIPTS FOR PROJECT IMAGE EFFECTS
 
-    fetch('send_email.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert(data); // Display the response message
-        this.reset(); // Reset the form
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Sorry, something went wrong. Please try again later.');
+    document.addEventListener('DOMContentLoaded', () => {
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const imageNameDiv = document.getElementById('image-name');
+    
+        portfolioItems.forEach(item => {
+            const img = item.querySelector('img');
+            
+            item.addEventListener('mouseover', () => {
+                const imgName = img.getAttribute('alt');
+                if (imgName) {
+                    imageNameDiv.textContent = imgName;
+                    imageNameDiv.style.display = 'block';
+                    const rect = img.getBoundingClientRect();
+                    imageNameDiv.style.top = `${rect.bottom + window.scrollY}px`;
+                    imageNameDiv.style.left = `${rect.left + window.scrollX}px`;
+                }
+            });
+    
+            item.addEventListener('mouseout', () => {
+                imageNameDiv.style.display = 'none';
+            });
+        });
     });
-});

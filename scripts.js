@@ -27,7 +27,22 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 
-// === TAWK END===
+// ==== SCRIPTS FOR THANK YOU REVIEW
+
+document.addEventListener('DOMContentLoaded', function() {
+    const feedbackForm = document.getElementById('feedbackForm');
+    const thankYouMessage = document.getElementById('thankYouMessage');
+
+    feedbackForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        feedbackForm.reset();
+        thankYouMessage.classList.remove('hidden'); 
+        setTimeout(() => {
+            thankYouMessage.classList.add('hidden');
+        }, 5000); 
+    });
+});
+
 
 //=====TO PREVENT TEXT COPYING============
 
@@ -35,7 +50,6 @@ s0.parentNode.insertBefore(s1,s0);
     // document.addEventListener('contextmenu', function(e) {
     //     e.preventDefault();
     // });
-
 
     // ======SCRIPTS FOR PROJECT IMAGE EFFECTS
 

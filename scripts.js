@@ -76,3 +76,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+
+    // QUOTE SCRIPTS
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const quotes = [
+        "Code is like humor. When you have to explain it, it’s bad. – Cory House",
+        "First, solve the problem. Then, write the code. – John Johnson",
+        "Experience is the name everyone gives to their mistakes. – Oscar Wilde",
+        "In order to be irreplaceable, one must always be different. – Coco Chanel",
+        "Java is to JavaScript what car is to Carpet. – Chris Heilmann",
+        "Sometimes it pays to stay in bed on Monday, rather than spending the rest of the week debugging Monday’s code. – Dan Salomon",
+        "Perfection is achieved not when there is nothing more to add, but rather when there is nothing more to take away. – Antoine de Saint-Exupery",
+        "Before software can be reusable it first has to be usable. – Ralph Johnson",
+        "The only way to do great work is to love what you do. – Steve Jobs",
+        "Learning never exhausts the mind. – Leonardo da Vinci",
+      ];
+
+      const quoteElement = document.getElementById("daily-quote");
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      quoteElement.textContent = quotes[randomIndex];
+    });
